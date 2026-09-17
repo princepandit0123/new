@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/index.js", "use": "@vercel/node" },
+    { "src": "api/article.js", "use": "@vercel/node" },
+    { "src": "public/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/index.js" },
+    { "src": "/article/(.*)", "dest": "/api/article.js" },
+    { "src": "/admin", "dest": "/admin.html" },
+    { "src": "/bollywood", "dest": "/bollywood.html" },
+    { "src": "/movies", "dest": "/movies.html" },
+    { "src": "/ott", "dest": "/ott.html" },
+    { "src": "/web-series", "dest": "/web-series.html" },
+    { "src": "/celebrities", "dest": "/celebrities.html" },
+    { "src": "/hollywood", "dest": "/hollywood.html" },
+    { "src": "/reviews", "dest": "/reviews.html" },
+    { "src": "/box-office", "dest": "/box-office.html" },
+    { "src": "/cricket", "dest": "/cricket.html" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/editorial-policy", "dest": "/editorial-policy.html" },
+    { "src": "/privacy", "dest": "/privacy.html" },
+    { "src": "/terms", "dest": "/terms.html" },
+    { "src": "/disclaimer", "dest": "/disclaimer.html" },
+    { "src": "/corrections", "dest": "/corrections.html" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ],
+  "crons": [
+    { "path": "/api/sync-news", "schedule": "*/10 * * * *" }
+  ]
+}
